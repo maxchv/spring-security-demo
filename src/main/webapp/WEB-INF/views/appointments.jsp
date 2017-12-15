@@ -33,7 +33,9 @@
             src="<spring:url value="/resources/js/bootstrap-multiselect.js"/>"></script>
     <script src="<spring:url value="/resources/js/global.js"/>"></script>
     <script src="<spring:url value="/resources/js/appointments.js"/>"></script>
-
+    <script>
+        var root = "${pageContext.request.contextPath}";
+    </script>
 </head>
 <body>
 <jsp:include page="header.jsp"/>
