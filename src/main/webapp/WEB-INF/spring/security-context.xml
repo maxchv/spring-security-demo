@@ -5,6 +5,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
       http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
 
+    <bean class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler"/>
+
     <security:http auto-config="true" use-expressions="false">
         <security:form-login login-page="/login" login-processing-url="/login"
                              username-parameter="custom_username" password-parameter="custom_password"
