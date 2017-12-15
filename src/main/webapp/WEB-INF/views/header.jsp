@@ -15,9 +15,12 @@
                 <c:when test="${authenticated}">
                     <li>
                         <p class="navbar-text">
-                            Welcome
-                            <sec:authentication property="name"/>
-                            <a href="<spring:url value="/logout"/>">Logout</a>
+                            Welcome <sec:authentication property="name"/>
+                            <a id="logout" href="#">Logout</a>
+                        <form id="form-logout" method="post"
+                              action="<spring:url value="/logout"/>">
+                            <sec:csrfInput/>
+                        </form>
                         </p>
                     </li>
                 </c:when>
