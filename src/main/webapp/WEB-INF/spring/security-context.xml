@@ -6,7 +6,8 @@
       http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
 
     <security:http auto-config="true" use-expressions="false">
-        <security:http-basic/>
+        <security:form-login login-page="/login" login-processing-url="/login"
+                             username-parameter="custom_username" password-parameter="custom_password" />
         <security:intercept-url pattern="/appointments/*" access="ROLE_USER"/>
         <security:intercept-url pattern="/schedule/*" access="ROLE_ADMIN"/>
         <security:intercept-url pattern="/**" access="ROLE_USER,ROLE_ANONYMOUS"/>

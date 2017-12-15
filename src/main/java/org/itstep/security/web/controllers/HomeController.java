@@ -18,7 +18,7 @@ public class HomeController {
         return "services";
     }
 
-    @RequestMapping("/login")
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String goLogin() {
         return "login";
     }
