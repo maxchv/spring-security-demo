@@ -43,6 +43,9 @@
             <input type="password" name="custom_password" id="custom_password" class="form-control"/>
         </div>
         <sec:csrfInput/>
+        <c:if test="${param.error != null}">
+            <p>Invalid Username or Password</p>
+        </c:if>
         <button type="submit" id="btn-save" class="btn btn-primary">Login</button>
     </form>
 </div>
