@@ -19,84 +19,47 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import org.itstep.security.domain.entities.util.LocalDateConverter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "APPOINTMENT")
+@Data
+@NoArgsConstructor
+@RequiredArgsConstructor
 public class Appointment {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "APPOINTMENT_ID")
-	private Long appointmentId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "APPOINTMENT_ID")
+    private Long appointmentId;
 
-	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
-	@JoinColumn(name = "USER_ID")
-	private AutoUser user;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "USER_ID")
+    @NonNull
+    private AutoUser user;
 
-	@Embedded
-	private Automobile automobile;
+    @Embedded
+    @NonNull
+    private Automobile automobile;
 
-	@Column(name = "APPOINTMENT_DT")
-	@Convert(converter = LocalDateConverter.class)
-	@DateTimeFormat(pattern = "dd-MM-yyyy")
-	private LocalDate appointmentDt;
+    @Column(name = "APPOINTMENT_DT")
+    @Convert(converter = LocalDateConverter.class)
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @NonNull
+    private LocalDate appointmentDt;
 
-	@ElementCollection(fetch = FetchType.EAGER)
-	@CollectionTable(name = "SERVICES", joinColumns = { @JoinColumn(name = "APPOINTMENT_ID") })
-	@Column(name = "NAME")
-	private List<String> services = new ArrayList<String>();
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "SERVICES", joinColumns = {@JoinColumn(name = "APPOINTMENT_ID")})
+    @Column(name = "NAME")
+    @NonNull
+    private List<String> services = new ArrayList<String>();
 
-	@Column(name = "STATUS")
-	private String status;
-
-	public Long getAppointmentId() {
-		return appointmentId;
-	}
-
-	public void setAppointmentId(Long appointmentId) {
-		this.appointmentId = appointmentId;
-	}
-
-	public AutoUser getUser() {
-		return user;
-	}
-
-	public void setUser(AutoUser user) {
-		this.user = user;
-	}
-
-	public Automobile getAutomobile() {
-		return automobile;
-	}
-
-	public void setAutomobile(Automobile automobile) {
-		this.automobile = automobile;
-	}
-
-	public LocalDate getAppointmentDt() {
-		return appointmentDt;
-	}
-
-	public void setAppointmentDt(LocalDate appointmentDt) {
-		this.appointmentDt = appointmentDt;
-	}
-
-	public List<String> getServices() {
-		return services;
-	}
-
-	public void setServices(List<String> services) {
-		this.services = services;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
+    @Column(name = "STATUS")
+    @NonNull
+    private String status;
 }
