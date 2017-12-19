@@ -12,12 +12,12 @@ public class HomeController {
 	public String goHome(){
 		return "home";
 	}
-	
+
 	@RequestMapping("/services")
 	public String goServices(){
 		return "services";
 	}
-	
+
 	@RequestMapping("/login")
 	public String goLogin(){
 		return "login";

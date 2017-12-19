@@ -20,6 +20,7 @@ CREATE TABLE AUTO_USER (
   LAST_NAME  VARCHAR(255),
   PASSWORD   VARCHAR(255),
   USERNAME   VARCHAR(255),
+  ROLE       VARCHAR(255),
   PRIMARY KEY (autoUserId)
 );
 
@@ -39,14 +40,14 @@ FOREIGN KEY (APPOINTMENT_ID)
 REFERENCES APPOINTMENT;
 
 
-INSERT INTO AUTO_USER (autoUserId, EMAIL, FIRST_NAME, LAST_NAME, PASSWORD, USERNAME)
-VALUES (NULL, 'kevin.m.bowersox@gmail.com', 'Kevin', 'Bowersox', 'password', 'kbowersox');
-INSERT INTO AUTO_USER (autoUserId, EMAIL, FIRST_NAME, LAST_NAME, PASSWORD, USERNAME)
-VALUES (NULL, 'johndoe@gmail.com', 'John', 'Doe', 'password', 'kbowersox');
-INSERT INTO AUTO_USER (autoUserId, EMAIL, FIRST_NAME, LAST_NAME, PASSWORD, USERNAME)
-VALUES (NULL, 'janedoe@gmail.com', 'Jane', 'Doe', 'password', 'kbowersox');
-INSERT INTO AUTO_USER (autoUserId, EMAIL, FIRST_NAME, LAST_NAME, PASSWORD, USERNAME)
-VALUES (NULL, 'juniordoe@gmail.com', 'Junior', 'Doe', 'password', 'kbowersox');
+INSERT INTO AUTO_USER (autoUserId, EMAIL, FIRST_NAME, LAST_NAME, PASSWORD, USERNAME, ROLE)
+VALUES (NULL, 'kevin.m.bowersox@gmail.com', 'Kevin', 'Bowersox', 'password', 'kbowersox', 'ROLE_ADMIN');
+INSERT INTO AUTO_USER (autoUserId, EMAIL, FIRST_NAME, LAST_NAME, PASSWORD, USERNAME, ROLE)
+VALUES (NULL, 'johndoe@gmail.com', 'John', 'Doe', 'password', 'jodoe', 'ROLE_USER');
+INSERT INTO AUTO_USER (autoUserId, EMAIL, FIRST_NAME, LAST_NAME, PASSWORD, USERNAME, ROLE)
+VALUES (NULL, 'janedoe@gmail.com', 'Jane', 'Doe', 'password', 'jadoe', 'ROLE_USER');
+INSERT INTO AUTO_USER (autoUserId, EMAIL, FIRST_NAME, LAST_NAME, PASSWORD, USERNAME, ROLE)
+VALUES (NULL, 'juniordoe@gmail.com', 'Junior', 'Doe', 'password', 'jrdoe', 'ROLE_USER');
 
 INSERT INTO APPOINTMENT (APPOINTMENT_ID, APPOINTMENT_DT, MAKE, MODEL, YEAR, USER_ID, STATUS)
 VALUES (1, '2015-08-12 00:00:00', 'Subaru', 'Impreza', '2015', 1, 'Initial');

@@ -45,6 +45,10 @@ public class AutoUser {
     @NonNull
     private String password;
 
+    @Column(name = "ROLE")
+    @NonNull
+    private String role;
+
     @Column(name = "EMAIL")
     @NonNull
     private String email;
