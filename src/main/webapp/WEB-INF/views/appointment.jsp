@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" isELIgnored="false"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,6 +35,7 @@
 <script>
 	var root = "${pageContext.request.contextPath}";
 </script>
+	<script src="${pageContext.request.contextPath}/resources/js/global.js"></script>
 </head>
 <body>
 	<jsp:include page="header.jsp"/>

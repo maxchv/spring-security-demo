@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AutoUserRepository extends JpaRepository<AutoUser, Long> {
 
-    public AutoUser findUserByUsername(String username);
+    AutoUser findUserByUsername(String username);
 
 }

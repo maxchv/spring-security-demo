@@ -8,18 +8,23 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/")
 public class HomeController {
 
-	@RequestMapping(method=RequestMethod.GET)
-	public String goHome(){
-		return "home";
-	}
+    @RequestMapping(method = RequestMethod.GET)
+    public String goHome() {
+        return "home";
+    }
 
-	@RequestMapping("/services")
-	public String goServices(){
-		return "services";
-	}
+    @RequestMapping("/services")
+    public String goServices() {
+        return "services";
+    }
 
-	@RequestMapping("/login")
-	public String goLogin(){
-		return "login";
-	}
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String goLogin() {
+        return "login";
+    }
+
+    @RequestMapping("/schedule")
+    public String goSchedule() {
+        return "schedule";
+    }
 }

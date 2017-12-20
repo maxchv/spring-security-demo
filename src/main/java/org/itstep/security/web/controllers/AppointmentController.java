@@ -53,9 +53,8 @@ public class AppointmentController {
 
 	@RequestMapping("/{appointmentId}")
 	public String getAppointment(@PathVariable("appointmentId") Long appointmentId, Model model){
-		Appointment appointment = appointmentRepository.findOne(appointmentId);
+		Appointment appointment = appointmentRepository.findById(appointmentId).orElseGet(null);
 		model.addAttribute("appointment", appointment);
 		return "appointment";
 	}
-	
 }

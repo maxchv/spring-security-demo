@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" isELIgnored="false"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,6 +35,7 @@
 <script>
 	var root = "${pageContext.request.contextPath}";
 </script>
+	<script src="${pageContext.request.contextPath}/resources/js/global.js"></script>
 </head>
 <body>
 	<jsp:include page="header.jsp"/>
@@ -75,7 +76,7 @@
 	<div id="add-appointment-form" class="modal fade" tabindex="-1"
 		role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
-			<form:form id="appointment-form" commandName="appointment">
+			<form:form id="appointment-form" modelAttribute="appointment">
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal"
