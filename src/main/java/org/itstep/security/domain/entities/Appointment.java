@@ -38,7 +38,7 @@ public class Appointment {
     @Column(name = "APPOINTMENT_ID")
     private Long appointmentId;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = { CascadeType.MERGE, CascadeType.REFRESH })
     @JoinColumn(name = "USER_ID")
     @NonNull
     private AutoUser user;

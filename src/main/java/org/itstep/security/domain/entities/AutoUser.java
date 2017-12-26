@@ -54,7 +54,7 @@ public class AutoUser {
     private String email;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "user", cascade = { CascadeType.MERGE, CascadeType.REFRESH })
     @NonNull
     private List<Appointment> appointments = new ArrayList<Appointment>();
 
